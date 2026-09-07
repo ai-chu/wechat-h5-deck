@@ -103,4 +103,10 @@ description: "用代码生成微信端 H5 邀请函／营销画册（分屏吸�
 | `references/02-微信与iOS适配.md` | 微信内核与 iOS 的坑，逐条给解法 |
 | `references/03-设计系统.md` | 字阶、间距、配色、中文排版规则 |
 | `references/04-内容与结构.md` | 每屏放什么、文案怎么写 |
-| `PROMPT.md` | 给豆包／Kimi／通义等国内 AI 工具用的通用提示词 |
+| `PROMPT.md` | 给「只有对话框、不能操作本机」的 AI 用的通用提示词 |
+
+## 跨客户端
+
+`SKILL.md` 是开放标准，Claude Code（`~/.claude/skills/`）、
+WorkBuddy（`~/.workbuddy/skills/`）等客户端都能加载。
+本技能只用到"改文件、跑脚本、看浏览器"这些通用能力，没有绑定任何客户端专有工具。

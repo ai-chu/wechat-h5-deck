@@ -54,9 +54,13 @@ GitHub 上已有的开源 H5 工具（Luban-H5、H5DS 等）都是"自己造一�
 
 ---
 
-## 三种用法
+## 怎么用
 
-### ① Claude Code（自动触发）
+Agent Skills 已经是**开放标准**（Anthropic 2025 年 12 月开放），
+Claude Code、WorkBuddy、Codex CLI、Marvis、OpenClaw 等客户端都能加载 `SKILL.md`。
+这个技能没有依赖任何客户端专有的工具调用，跨客户端可用。
+
+### ① Claude Code
 
 ```bash
 git clone https://github.com/ai-chu/wechat-h5-deck.git
@@ -64,21 +68,40 @@ mkdir -p ~/.claude/skills
 cp -r wechat-h5-deck ~/.claude/skills/wechat-h5-deck
 ```
 
-之后在 Claude Code 里说"帮我做一个 XX 活动的邀请函"就会自动加载。
+### ② WorkBuddy（腾讯云 CodeBuddy 团队的桌面 Agent）
 
-### ② 豆包 / Kimi / 通义 / WorkBuddy 等国内 AI 工具
+同样的 `SKILL.md`，换个目录：
 
-这些工具不支持 skill 机制，也不能在你电脑上执行命令，但完全能胜任 ——
-因为模板已经是成品，AI 只需要改文字。
+```bash
+git clone https://github.com/ai-chu/wechat-h5-deck.git
+mkdir -p ~/.workbuddy/skills
+cp -r wechat-h5-deck ~/.workbuddy/skills/wechat-h5-deck
+```
 
-打开 **[PROMPT.md](PROMPT.md)**，里面有可以直接复制的提示词和完整步骤。
+WorkBuddy 能读写本地文件、调用本地软件，`scripts/shot.sh` 这类脚本它可以直接跑。
 
-### ③ 不用 AI，手工改
+### ③ 豆包工作 等能操作本机的 Agent
+
+豆包工作（2026 年 8 月起）支持操作本地电脑与浏览器、多 Agent 并行、
+虚拟桌面接管，跨设备调文件也没问题。用法有两种：
+
+- 把本仓库克隆到本地，让它读 `SKILL.md` 按里面的流程执行
+- 或者直接用 **[PROMPT.md](PROMPT.md)** 里的提示词
+
+### ④ 只有对话框的 AI（网页版豆包 / Kimi / 通义 / DeepSeek）
+
+不能操作本机也没关系 —— 模板已经是成品，AI 只需要改文字。
+打开 **[PROMPT.md](PROMPT.md)**，里面有可直接复制的提示词、
+以及"不用命令行怎么出海报、怎么部署"的完整路径。
+
+### ⑤ 不用 AI，手工改
 
 `templates/deck.html` 里的文字都集中在 `<body>`，每一屏有中文注释标好边界。
 用任何文本编辑器打开改就行，`<style>` 一个字都不用动。
 
----
+> **跨客户端的一个注意点**：SKILL.md 格式是通用的，但各家客户端的内置工具
+> （文件读写、命令执行的调用方式）不同。本技能只用到"改文件、跑脚本、看浏览器"
+> 这些通用能力，没有绑定特定客户端。
 
 ## 快速开始
 
