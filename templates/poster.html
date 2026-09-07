@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>设计思维工作坊 · 邀请函海报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F8F4EB;
+  --paper-2:#F1E9DA;
+  --paper-3:#E7DDC9;
+  --ink:#241D16;
+  --ink-2:#6B6156;
+  --ink-3:#9C9184;
+  --indigo:#16374C;
+  --indigo-2:#3A6B8A;
+  --cinnabar:#96271F;
+  --rule:#D6CAB4;
+  --dot:rgba(22,55,76,.10);
+  --serif:"Noto Serif SC","Songti SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"IBM Plex Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:#fff}
+
+#poster{
+  width:1080px;height:1920px;position:relative;overflow:hidden;
+  background:linear-gradient(172deg,var(--paper) 0%,var(--paper-2) 56%,var(--paper-3) 100%);
+  font-family:var(--serif);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;
+  padding:92px 92px 88px;
+}
+/* 点阵底纹 */
+#poster::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(var(--dot) 2px,transparent 2px);
+  background-size:52px 52px;
+  -webkit-mask-image:linear-gradient(#000 0%,rgba(0,0,0,.45) 44%,transparent 78%);
+  mask-image:linear-gradient(#000 0%,rgba(0,0,0,.45) 44%,transparent 78%);
+}
+/* 暖光斑 */
+#poster::after{
+  content:"";position:absolute;right:-20%;bottom:-6%;width:78%;height:34%;
+  background:radial-gradient(closest-side,rgba(150,39,31,.11),transparent 74%);
+}
+#poster > *{position:relative;z-index:1;width:100%;text-align:center}
+
+/* 文武线 */
+.wenwu i{display:block;background:var(--indigo);opacity:.32}
+.wenwu i:first-child{height:3px}
+.wenwu i:last-child{height:1.5px;margin-top:5px}
+.wenwu.rev i:first-child{height:1.5px}
+.wenwu.rev i:last-child{height:3px;margin-top:5px}
+
+.host{
+  font-family:var(--sans);font-size:23px;line-height:1.9;
+  color:var(--ink-2);letter-spacing:.04em;margin-top:32px;
+}
+.proj{
+  font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.66;
+  color:var(--indigo-2);margin-top:14px;letter-spacing:.03em;
+}
+
+.inv{
+  font-family:var(--serif);font-weight:900;font-size:176px;line-height:1;
+  color:var(--cinnabar);letter-spacing:.22em;text-indent:.22em;margin-top:78px;
+}
+.inv-en{
+  font-family:var(--mono);font-size:25px;letter-spacing:.7em;text-indent:.7em;
+  color:var(--cinnabar);opacity:.7;margin-top:28px;
+}
+.lozenge{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px}
+.lozenge i{display:block;width:120px;height:1.5px;background:var(--cinnabar);opacity:.34}
+.lozenge b{display:block;width:8px;height:8px;background:var(--cinnabar);opacity:.48;transform:rotate(45deg)}
+
+.wsname{
+  font-family:var(--serif);font-weight:900;font-size:76px;line-height:1.3;white-space:nowrap;
+  color:var(--indigo);letter-spacing:.045em;text-indent:.045em;margin-top:48px;
+}
+.wssub{
+  font-family:var(--serif);font-weight:700;font-size:40px;color:var(--indigo-2);
+  letter-spacing:.22em;text-indent:.22em;margin-top:24px;
+}
+.claim{
+  font-family:var(--serif);font-weight:500;font-size:38px;line-height:1.8;
+  color:var(--ink);margin-top:44px;letter-spacing:.04em;
+}
+
+.foot{margin-top:auto}
+.stamp{
+  border-top:1.5px solid var(--rule);border-bottom:1.5px solid var(--rule);
+  padding:28px 0 26px;
+}
+.stamp .d{
+  font-family:var(--serif);font-weight:700;font-size:46px;color:var(--cinnabar);
+  letter-spacing:.04em;font-variant-numeric:tabular-nums;line-height:1.3;
+}
+.stamp .h{
+  font-family:var(--mono);font-size:25px;color:var(--ink-3);
+  letter-spacing:.2em;text-indent:.2em;margin-top:16px;
+}
+.stamp .v{
+  font-family:var(--sans);font-size:31px;color:var(--ink);
+  margin-top:22px;letter-spacing:.04em;
+}
+.stamp .v em{
+  font-style:normal;font-size:24px;color:var(--ink-3);display:block;margin-top:8px;
+}
+
+.gate{
+  font-family:var(--sans);font-size:26px;color:var(--ink-2);
+  letter-spacing:.06em;margin-top:30px;
+}
+.gate b{color:var(--indigo);font-weight:700}
+
+.qrwrap{display:flex;flex-direction:column;align-items:center;margin-top:36px}
+.qr{
+  width:240px;height:240px;background:#F3EDE0;padding:11px;position:relative;
+  box-shadow:0 0 0 1px rgba(150,39,31,.16);
+}
+.qr img,.qr canvas{width:100%!important;height:100%!important;display:block}
+.qr #qrbox{width:100%;height:100%}
+.qr #qrbox img{margin:0}
+.qr .ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:var(--paper-2);
+  font-family:var(--mono);font-size:20px;color:var(--ink-3);line-height:2;letter-spacing:.08em;
+}
+.qr .corner{position:absolute;width:22px;height:22px;border:2.5px solid var(--cinnabar)}
+.qr .c1{top:-9px;left:-9px;border-right:none;border-bottom:none}
+.qr .c2{bottom:-9px;right:-9px;border-left:none;border-top:none}
+.qrcap{font-family:var(--sans);font-size:25px;color:var(--ink-2);margin-top:22px;letter-spacing:.08em}
+
+.botline{margin-top:40px}
+</style>
+</head>
+<body>
+<div id="poster">
+  <div class="wenwu"><i></i><i></i></div>
+
+  <div class="host">·主办　示例主办单位　　·承办　示例承办单位<br>·执行　示例执行单位</div>
+  <div class="proj">2026年城市青年美育计划</div>
+
+  <div class="inv">邀请函</div>
+  <div class="inv-en">INVITATION</div>
+  <div class="lozenge"><i></i><b></b><i></i></div>
+
+  <div class="wsname">设计思维工作坊</div>
+  <div class="wssub">让创意落到日常</div>
+  <div class="claim">把复杂的想法，说成一眼能懂的样子</div>
+
+  <div class="foot">
+    <div class="stamp">
+      <div class="d">2026年5月12日 · 19日 · 26日</div>
+      <div class="h">周二　9:00—16:00</div>
+      <div class="v">示例文化中心<em>三层多功能厅</em></div>
+    </div>
+
+    <div class="gate"><b>不需要技术基础</b></div>
+
+    <div class="qrwrap">
+      <div class="qr">
+        <span class="corner c1"></span><span class="corner c2"></span>
+        <div id="qrbox"></div>
+        <div class="ph" id="qrph" hidden>二维码生成失败<br>请检查网络</div>
+      </div>
+      <div class="qrcap">扫码查看完整详情</div>
+    </div>
+
+    <div class="wenwu rev botline"><i></i><i></i></div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* ===================================================================
+   海报二维码指向【详情页】，不是微信群码。
+   动线：群里看到这张海报 → 扫码进详情页。
+   改地址只改下面这一行，然后重跑 ./shot.sh 即可。
+   =================================================================== */
+var DETAIL_URL = 'https://YOUR-DOMAIN.example.com/deck/';
+
+var box = document.getElementById('qrbox'), ph = document.getElementById('qrph');
+if (window.QRCode) {
+  new QRCode(box, {
+    text: DETAIL_URL,
+    width: 480, height: 480,          // 渲染大图再缩放，@2x 截图也不糊
+    colorDark: '#16374C',            // 靛蓝，与页面主色同一支
+    colorLight: '#F3EDE0',           // 纸色，不用纯白
+    correctLevel: QRCode.CorrectLevel.M
+  });
+} else {
+  box.hidden = true; ph.hidden = false;
+}
+</script>
+</body>
+</html>

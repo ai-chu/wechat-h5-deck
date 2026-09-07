@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>设计思维工作坊 · 邀请函</title>
+<meta name="description" content="2026年城市青年美育计划 · 设计思维工作坊——让创意落到日常。5月12日、19日、26日，示例文化中心。">
+<!-- 微信/社交转发抓取用。部署后按实际域名核对 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="设计思维工作坊 · 邀请函">
+<meta property="og:description" content="把复杂的想法，说成一眼能懂的样子。5月12日、19日、26日，示例文化中心。">
+<meta property="og:image" content="https://YOUR-DOMAIN.example.com/deck/share.png">
+<link rel="image_src" href="https://YOUR-DOMAIN.example.com/deck/share.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============ 令牌 ============ */
+:root{
+  /* 纸与墨 */
+  --paper:#F7F3EA;
+  --paper-2:#F1EADC;
+  --paper-3:#E9E0CE;
+  --card:#FCFAF5;
+  --ink:#241D16;
+  --ink-2:#6B6156;
+  --ink-3:#9C9184;
+  --indigo:#16374C;
+  --indigo-2:#3A6B8A;
+  --cinnabar:#96271F;
+  --rule:#D6CAB4;
+  --rule-2:#E5DCCA;
+  --dot:rgba(22,55,76,.09);
+
+  /* 字族 */
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* 字阶（模数 1.25，基准 15） */
+  --t-xs:11px;
+  --t-sm:12.5px;
+  --t-base:15px;
+  --t-md:17px;
+  --t-lg:21px;
+  --t-xl:27px;
+
+  /* 基线间距（6 的倍数） */
+  --s1:6px; --s2:12px; --s3:18px; --s4:24px; --s5:36px; --s6:48px; --s7:72px;
+
+  --bar:58px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:var(--t-base);
+  line-height:2;
+  line-break:strict;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+}
+
+/* ============ 骨架 ============ */
+#progress{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:var(--cinnabar);opacity:.72;transition:width .12s linear;
+}
+#deck{
+  height:100dvh;overflow-y:auto;overflow-x:hidden;
+  /* mandatory：滚动停下必定对齐到某一屏，不会悬在两屏之间 */
+  scroll-snap-type:y mandatory;
+  overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.screen{
+  min-height:100dvh;
+  scroll-snap-align:start;
+  /* 一次滑动手势最多跨一屏 —— 力度再大也不会连翻几页。
+     内容高过一屏的（日程、联系我们）浏览器仍允许自由滚到底，不会被卡住。 */
+  scroll-snap-stop:always;
+  display:flex;flex-direction:column;
+  padding:calc(var(--s5) + env(safe-area-inset-top)) var(--s4)
+          calc(env(safe-area-inset-bottom) + 52px);   /* 52 = 音符键 34 + 下边距 14 + 余隙 */
+  position:relative;
+  background:linear-gradient(172deg,var(--paper) 0%,var(--paper-2) 50%,var(--paper-3) 82%,#E3D8C3 100%);
+  border-bottom:1px solid var(--rule-2);
+}
+.screen:last-child{border-bottom:none}
+/* 点阵底纹：比线格精细，只在上部显影 */
+.screen::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--dot) 1.1px,transparent 1.1px);
+  background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(#000 0%,rgba(0,0,0,.5) 46%,transparent 82%);
+  mask-image:linear-gradient(#000 0%,rgba(0,0,0,.5) 46%,transparent 82%);
+}
+.inner{position:relative;z-index:1;width:100%;max-width:480px;margin:auto}
+
+/* ============ 屏眉 ============ */
+.chap{
+  display:flex;align-items:center;gap:var(--s2);
+  padding-bottom:var(--s1);margin-bottom:var(--s3);
+  border-bottom:1px solid var(--rule-2);
+}
+.chap b{
+  font-family:var(--serif);font-weight:700;font-size:12px;color:var(--cinnabar);
+  width:21px;height:21px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--cinnabar);
+}
+.chap em{
+  font-family:var(--mono);font-style:normal;font-size:9.5px;
+  letter-spacing:.24em;color:var(--ink-3);margin-left:auto;text-indent:.24em;
+}
+
+/* ============ 标题与正文 ============ */
+h3{
+  font-family:var(--serif);font-weight:700;font-size:var(--t-md);
+  line-height:1.6;color:var(--indigo);margin:0;letter-spacing:.03em;
+}
+h2 .hd{
+  font-family:var(--serif);font-weight:700;font-size:var(--t-lg);
+  color:var(--cinnabar);margin-left:.6em;letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+}
+h2{
+  font-family:var(--serif);font-weight:900;
+  font-size:var(--t-xl);line-height:1.45;letter-spacing:.02em;
+  color:var(--indigo);margin:0 0 var(--s2);
+}
+/* 项目全名：正文里用黑体加粗顶出来，让人记得住是哪个项目。
+   颜色走墨色而非标题的靛蓝 —— 靠字重出头，不跟标题抢。 */
+.prose .pname{font-family:var(--sans);font-weight:700;color:var(--ink)}
+.deck-line{
+  font-family:var(--sans);font-weight:400;font-size:var(--t-sm);
+  line-height:1.9;color:var(--ink-2);margin:calc(-1 * var(--s1)) 0 var(--s3);
+  letter-spacing:.01em;
+}
+p{margin:0 0 var(--s2)}
+p:last-child{margin-bottom:0}
+.prose p{
+  font-size:var(--t-base);line-height:2.15;color:var(--ink-2);
+  text-align:justify;text-justify:inter-ideograph;text-indent:2em;
+}
+
+/* ============ 封面 ============ */
+#cover{padding-top:calc(var(--s4) + env(safe-area-inset-top));overflow:hidden}
+/* 三段式：署名贴顶、主体居中、引导贴底 —— 留白按节奏分配，
+   不像先前那样全部堆在主张与日期之间，撕出一个大洞。 */
+#cover .inner{display:flex;flex-direction:column;flex:1;margin:0 auto}
+.cover-head{flex:none;padding-bottom:var(--s3)}
+.cover-body{flex:1;display:flex;flex-direction:column;justify-content:center}
+#cover::after{
+  content:"";position:absolute;right:-24%;bottom:-4%;width:80%;height:32%;
+  background:radial-gradient(closest-side,rgba(150,39,31,.09),transparent 72%);
+  pointer-events:none;
+}
+.wenwu{width:100%;flex:none}
+.wenwu i{display:block;background:var(--indigo);opacity:.34}
+.wenwu i:first-child{height:2px}
+.wenwu i:last-child{height:1px;margin-top:3px}
+.wenwu.rev i:first-child{height:1px}
+.wenwu.rev i:last-child{height:2px;margin-top:3px}
+
+.host{
+  font-family:var(--sans);font-size:9.5px;line-height:1.75;color:var(--ink-2);
+  text-align:center;letter-spacing:.04em;margin-top:var(--s1);
+}
+.proj{
+  font-family:var(--serif);font-weight:700;font-size:12px;line-height:1.7;
+  color:var(--indigo-2);text-align:center;margin-top:var(--s1);letter-spacing:.03em;line-height:1.55;
+}
+
+.inv{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(36px,10vw,46px);line-height:1;
+  color:var(--cinnabar);text-align:center;
+  letter-spacing:.2em;text-indent:.2em;margin-top:0;
+}
+.inv-en{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.6em;text-indent:.6em;
+  color:var(--cinnabar);opacity:.72;text-align:center;margin-top:2px;
+}
+.lozenge{display:flex;align-items:center;justify-content:center;gap:var(--s2);margin:var(--s2) 0 var(--s3)}
+.lozenge i{display:block;width:52px;height:1px;background:var(--cinnabar);opacity:.36}
+.lozenge b{display:block;width:5px;height:5px;background:var(--cinnabar);opacity:.5;transform:rotate(45deg)}
+
+.wsname{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(22px,6.5vw,28px);line-height:1.32;
+  color:var(--indigo);text-align:center;letter-spacing:.045em;text-indent:.045em;
+}
+.wssub{
+  font-family:var(--serif);font-weight:700;font-size:var(--t-base);
+  color:var(--indigo-2);text-align:center;
+  margin-top:var(--s1);letter-spacing:.2em;text-indent:.2em;
+}
+.claim{
+  font-family:var(--serif);font-weight:500;font-size:16px;
+  line-height:1.75;color:var(--ink);text-align:center;
+  margin-top:var(--s3);letter-spacing:.03em;
+}
+
+.cover-foot{flex:none;padding-top:var(--s1)}
+.cwline{margin-bottom:var(--s2);opacity:.34}
+.cwline i{background:var(--cinnabar)}
+.stamp{
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:var(--s3) 0;margin-top:var(--s4);text-align:center;
+}
+.stamp .d{
+  font-family:var(--serif);font-weight:700;font-size:16px;
+  color:var(--cinnabar);letter-spacing:.04em;font-variant-numeric:tabular-nums;
+}
+.stamp .h{
+  font-family:var(--mono);font-size:var(--t-xs);color:var(--ink-3);
+  letter-spacing:.16em;margin-top:3px;
+}
+.stamp .v{
+  font-family:var(--sans);font-size:var(--t-sm);color:var(--ink);
+  margin-top:var(--s1);letter-spacing:.03em;
+}
+.stamp .v em{display:block;font-style:normal;color:var(--ink-3);font-size:var(--t-xs);margin-top:2px}
+.hint{
+  font-family:var(--sans);font-size:11px;color:var(--ink-3);
+  text-align:center;margin-top:var(--s2);line-height:1.4;letter-spacing:.06em;
+}
+.hint i{
+  display:block;width:1px;height:15px;background:var(--indigo-2);opacity:.55;
+  margin:4px auto 0;position:relative;
+  animation:bob 2.6s ease-in-out infinite;
+}
+.hint i::before,.hint i::after{
+  content:"";position:absolute;top:0;width:1px;height:7px;background:inherit;
+}
+.hint i::before{left:-3px;transform:rotate(-34deg);transform-origin:top center}
+.hint i::after{right:-3px;transform:rotate(34deg);transform-origin:top center}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+
+/* ============ 编号条目（工作坊内容 / 带走什么） ============ */
+.items{border-top:1px solid var(--rule-2)}
+.item{
+  display:grid;grid-template-columns:24px 1fr;gap:var(--s2);
+  padding:16px 0;border-bottom:1px solid var(--rule-2);
+}
+.item .n{
+  font-family:var(--mono);font-size:var(--t-xs);color:var(--cinnabar);
+  padding-top:5px;letter-spacing:.02em;
+}
+.item .t{
+  font-family:var(--serif);font-weight:700;font-size:var(--t-base);
+  color:var(--indigo);line-height:1.5;letter-spacing:.02em;
+}
+.item .d{
+  font-family:var(--sans);font-size:var(--t-sm);line-height:1.8;
+  color:var(--ink-2);margin-top:3px;
+}
+.tail{
+  display:flex;flex-direction:column;gap:3px;
+  font-family:var(--sans);font-size:var(--t-xs);color:var(--ink-3);
+  margin-top:var(--s2);letter-spacing:.06em;
+}
+
+/* ============ 日程 ============ */
+.term{margin-bottom:var(--s1)}
+.term:last-child{margin-bottom:0}
+.term-head{
+  display:flex;align-items:baseline;gap:var(--s2);
+  padding-bottom:4px;
+  border-bottom:1.5px solid var(--indigo);
+}
+.term-head b{
+  font-family:var(--serif);font-weight:900;font-size:var(--t-base);
+  color:var(--indigo);letter-spacing:.08em;
+}
+.term-head span{
+  font-family:var(--serif);font-weight:700;font-size:var(--t-base);
+  color:var(--cinnabar);font-variant-numeric:tabular-nums;letter-spacing:.02em;
+}
+.slot{
+  display:grid;grid-template-columns:42px 1fr;gap:var(--s2);
+  padding:6px 0;border-bottom:1px solid var(--rule-2);
+}
+.slot:last-child{border-bottom:none}
+.slot .hh{
+  font-family:var(--mono);font-size:10.5px;color:var(--indigo-2);
+  padding-top:3px;font-variant-numeric:tabular-nums;
+}
+.slot .tt{
+  font-family:var(--serif);font-weight:500;font-size:13.5px;
+  line-height:1.65;color:var(--ink);
+}
+.slot .spk{font-weight:700;color:var(--indigo);letter-spacing:.06em}
+.slot .sep{font-style:normal;color:var(--rule);font-weight:400;margin:0 .1em}
+
+/* ============ 名单：两字名与三字名对齐 ============ */
+.nm{
+  display:inline-block;min-width:3em;
+  text-align:justify;text-align-last:justify;
+  font-family:var(--serif);font-weight:700;letter-spacing:0;
+}
+.team{border-top:1px solid var(--rule-2)}
+.team-row{
+  display:grid;grid-template-columns:72px 1fr;gap:var(--s2);align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--rule-2);
+}
+.team-row .r{
+  font-family:var(--sans);font-size:var(--t-xs);color:var(--ink-3);
+  letter-spacing:.1em;line-height:1.7;
+}
+.team-row .m .nm{
+  font-size:var(--t-base);color:var(--indigo);margin-right:1.3em;line-height:1.8;
+}
+.team-row .m .nm:last-child{margin-right:0}
+
+/* ============ 到达 ============ */
+/* 路线说明已全部删除：地铁到校区本就不近，写细了反成负担；
+   地址放大成这一屏的主体，导航交给地图。 */
+.addr{
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:var(--s6) 0;text-align:center;
+}
+.addr .a1{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(24px,7vw,30px);line-height:1.45;
+  color:var(--indigo);letter-spacing:.03em;
+}
+.addr .a2{
+  font-family:var(--sans);font-size:var(--t-md);color:var(--ink-2);
+  margin-top:var(--s2);letter-spacing:.08em;
+}
+.addr .a3{
+  font-family:var(--serif);font-size:var(--t-md);line-height:1.75;
+  color:var(--ink);margin-top:var(--s4);letter-spacing:.02em;
+  cursor:pointer;
+}
+.addr .a4{
+  font-family:var(--sans);font-size:var(--t-xs);color:var(--ink-3);
+  margin-top:var(--s1);letter-spacing:.1em;
+}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;width:100%;
+  margin-top:var(--s4);
+  padding:16px 10px;font-family:var(--sans);font-size:15px;font-weight:500;
+  letter-spacing:.14em;text-indent:.14em;
+  border:1px solid var(--indigo);background:var(--indigo);color:var(--paper);
+  text-decoration:none;cursor:pointer;transition:opacity .15s;
+}
+.btn:active{opacity:.72}
+.btn:focus-visible{outline:2px solid var(--cinnabar);outline-offset:2px}
+
+/* ============ 页脚 ============ */
+.colophon{
+  margin-top:auto;padding-top:var(--s1);text-align:center;
+}
+.colophon .cw{margin-bottom:var(--s2)}
+.colophon .credit{font-size:9px;opacity:.7;margin-top:3px}
+.colophon p{
+  font-family:var(--sans);font-size:10px;color:var(--ink-3);
+  line-height:1.7;letter-spacing:.08em;margin:0;
+}
+
+/* ============ 背景音开关 ============ */
+#bgm{
+  position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));
+  z-index:55;width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(22,55,76,.20);background:rgba(252,250,245,.86);
+  color:var(--indigo-2);font-size:13px;line-height:1;padding:0;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:color .2s,border-color .2s;
+  box-shadow:0 1px 4px rgba(36,29,22,.06);
+}
+#bgm.on{color:var(--cinnabar);border-color:rgba(150,39,31,.42);background:rgba(252,250,245,.95)}
+#bgm.on span{animation:pulse 2.8s ease-in-out infinite}
+#bgm:focus-visible{outline:2px solid var(--cinnabar);outline-offset:2px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+
+#toast{
+  position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));
+  transform:translateX(-50%) translateY(6px);
+  background:var(--indigo);color:var(--paper);
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;
+  padding:9px 20px;z-index:70;opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;white-space:nowrap;
+}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (min-width:560px){
+  .screen{padding-left:var(--s6);padding-right:var(--s6)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hint i,#bgm.on span{animation:none}
+  #progress{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<main id="deck">
+
+<!-- ═══ 封面 ═══ 三段式：署名贴顶 / 主体居中 / 引导贴底 ═══ -->
+<section class="screen" id="cover">
+  <div class="inner">
+    <div class="cover-head">
+      <div class="wenwu"><i></i><i></i></div>
+      <div class="host">·主办　示例主办单位　　·承办　示例承办单位<br>·执行　示例执行单位</div>
+      <div class="proj">2026年城市青年美育计划</div>
+    </div>
+
+    <div class="cover-body">
+      <div class="inv">邀请函</div>
+      <div class="inv-en">INVITATION</div>
+      <div class="lozenge"><i></i><b></b><i></i></div>
+
+      <div class="wsname">设计思维工作坊</div>
+      <div class="wssub">让创意落到日常</div>
+      <p class="claim">把复杂的想法<br>说成一眼能懂的样子</p>
+
+      <div class="stamp">
+        <div class="d">2026年5月12日 · 19日 · 26日</div>
+        <div class="h">周二　9:00—16:00</div>
+        <div class="v">示例文化中心<em>三层多功能厅</em></div>
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="wenwu rev cwline"><i></i><i></i></div>
+      <div class="hint">上滑了解详情<i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 一 · 项目介绍 ═══ -->
+<section class="screen" id="project">
+  <div class="inner">
+    <div class="chap"><b>一</b><em>PROJECT</em></div>
+    <h2>项目介绍</h2>
+    <div class="prose">
+      <p><b class="pname">2026年城市青年美育计划</b>，是面向全市青年从业者，搭建创意能力共学社群并沉淀公共课程资源的城市级美育项目。</p>
+      <p>项目依托连续三年的实施基础接续推进，以主题工作坊为核心抓手，系统推进沉浸式体验、场景式工作坊、行业共创工作坊及公共课程资源的集结与建设。</p>
+      <p>项目立足实践研修，探索新时代创意教育的新模式，全面提升参与者的美学素养与专业能力，推动城市公共美育走深走实、落地见效。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 二 · 活动介绍 ═══ -->
+<section class="screen" id="workshop">
+  <div class="inner">
+    <div class="chap"><b>二</b><em>WORKSHOP</em></div>
+    <h2>设计思维工作坊</h2>
+    <p class="deck-line">以设计思维为方法，探索创意与日常工作结合的新可能。</p>
+    <div class="items">
+      <div class="item"><div class="n">01</div><div><div class="t">方法与场景</div><div class="d">理解设计思维如何拓展表达的边界，看清它在真实工作中的位置。</div></div></div>
+      <div class="item"><div class="n">02</div><div><div class="t">复杂信息的图解表达</div><div class="d">把一个抽象概念拆开，做成对方一眼看得懂的一张图。</div></div></div>
+      <div class="item"><div class="n">03</div><div><div class="t">主题创作工坊</div><div class="d">以自己的真实课题为题，分组打磨作品，从构思到成图走完一遍。</div></div></div>
+      <div class="item"><div class="n">04</div><div><div class="t">成果分享</div><div class="d">交流创作成果，探讨如何把方法放回自己的工作场景。</div></div></div>
+    </div>
+    <div class="tail">
+      <span>形式　专家讲座 · 创意实践 · 交流展示</span>
+      <span>规模　300 人次</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 三 · 收获 ═══ -->
+<section class="screen" id="takeaway">
+  <div class="inner">
+    <div class="chap"><b>三</b><em>TAKEAWAY</em></div>
+    <h2>三次课，您会带走什么</h2>
+    <p class="deck-line">工具已经准备好，您带着自己的课题来就行。</p>
+    <div class="items">
+      <div class="item"><div class="n">01</div><div><div class="t">一到两件能直接使用的作品</div><div class="d">不是练习稿，是下周就能用在工作里的成品。</div></div></div>
+      <div class="item"><div class="n">02</div><div><div class="t">一套能带回去的方法</div><div class="d">一个复杂概念该怎么拆，做出一张匹配要点的图解。</div></div></div>
+      <div class="item"><div class="n">03</div><div><div class="t">面向未来的审美与判断</div><div class="d">不仅是学习工具使用，更是表达能力与专业素养的双向提升。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 四 · 日程 ═══ 三期合一屏，超过 7 讲要考虑拆屏 ═══ -->
+<section class="screen" id="schedule">
+  <div class="inner">
+    <div class="chap"><b>四</b><em>SCHEDULE</em></div>
+    <h2>三期日程</h2>
+    <p class="deck-line">三期均为周二，9:00—16:00。</p>
+
+    <div class="term">
+      <div class="term-head"><b>第一期</b><span>5月12日</span></div>
+      <div class="slot"><div class="hh">09:30</div><div class="tt"><b class="spk">示例讲者</b><i class="sep">｜</i>《创意的起点》</div></div>
+      <div class="slot"><div class="hh">13:30</div><div class="tt"><b class="spk">示例讲者</b><i class="sep">｜</i>《工具时代的表达训练》</div></div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><b>第二期</b><span>5月19日</span></div>
+      <div class="slot"><div class="hh">09:00</div><div class="tt"><b class="spk">示例讲者</b><i class="sep">｜</i>《跨领域的方法融通》</div></div>
+      <div class="slot"><div class="hh">10:40</div><div class="tt"><b class="spk">示例讲者</b><i class="sep">｜</i>《评价体系的建构与实践》</div></div>
+      <div class="slot"><div class="hh">13:30</div><div class="tt"><b class="spk">示例讲者　等</b><i class="sep">｜</i>《融合课程的设计与应用》</div></div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><b>第三期</b><span>5月26日</span></div>
+      <div class="slot"><div class="hh">09:00</div><div class="tt"><b class="spk">示例讲者</b><i class="sep">｜</i>《面向变化的育人理念》</div></div>
+      <div class="slot"><div class="hh">13:00</div><div class="tt"><b class="spk">示例讲者　等</b><i class="sep">｜</i>《课程设计与实践》</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 五 · 团队 ═══ 两字名会被撑成三字宽，与三字名对齐成栏 ═══ -->
+<section class="screen" id="team">
+  <div class="inner">
+    <div class="chap"><b>五</b><em>TEAM</em></div>
+    <h2>项目团队</h2>
+    <div class="team">
+      <div class="team-row"><div class="r">总负责<br>总策划</div><div class="m"><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">总保障</div><div class="m"><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">行政支持</div><div class="m"><span class="nm">示例</span><span class="nm">示例</span><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">业务执行</div><div class="m"><span class="nm">示例</span><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">行政执行</div><div class="m"><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">学员管理</div><div class="m"><span class="nm">示例</span><span class="nm">示例</span><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">摄像宣传</div><div class="m"><span class="nm">示例</span><span class="nm">示例</span></div></div>
+      <div class="team-row"><div class="r">多媒体<br>音响</div><div class="m"><span class="nm">示例</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 六 · 到达 ═══ 末屏，兼作页脚 ═══ -->
+<section class="screen" id="visit">
+  <div class="inner">
+    <div class="chap"><b>六</b><em>GETTING HERE</em></div>
+    <h2>到达方式</h2>
+
+    <div class="addr">
+      <div class="a1">示例文化中心</div>
+      <div class="a2">三层多功能厅</div>
+      <div class="a3" id="copyAddr">示例市示例区<br>示例路 1 号</div>
+      <div class="a4">轻触地址可复制</div>
+    </div>
+
+    <!-- 高德 URI API：不需要 key、不需要注册，微信内会先跳高德 H5 页 -->
+    <a class="btn" href="https://uri.amap.com/search?keyword=%E7%A4%BA%E4%BE%8B%E6%96%87%E5%8C%96%E4%B8%AD%E5%BF%83&city=%E7%A4%BA%E4%BE%8B%E5%B8%82" target="_blank" rel="noopener">在地图中打开</a>
+
+    <div class="colophon">
+      <div class="wenwu rev cw"><i></i><i></i></div>
+      <p>示例承办单位　示例执行单位</p>
+      <p class="credit">配乐 请在此注明曲目与授权</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 背景音：把自己的 bgm.mp3 放同目录即可；没有该文件时音符键会自动隐藏 -->
+<audio id="bgmAudio" src="bgm.mp3" loop preload="auto" playsinline></audio>
+<button id="bgm" type="button" aria-label="背景音乐" aria-pressed="false"><span>&#9834;</span></button>
+
+<div id="toast">地址已复制</div>
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  var bar  = document.getElementById('progress');
+
+  function tick(){
+    var max = deck.scrollHeight - deck.clientHeight;
+    bar.style.width = (max > 0 ? (deck.scrollTop / max) * 100 : 0) + '%';
+  }
+  deck.addEventListener('scroll', tick, {passive:true});
+  tick();
+
+  // 底部条锚点：容器内滚动，普通 hash 跳不动
+  // 带 #hash 打开时直接落到对应那一屏
+  (function(){
+    var h = location.hash;
+    if (!h || h.length < 2) return;
+    var el = document.querySelector(h);
+    if (el) requestAnimationFrame(function(){ deck.scrollTop = el.offsetTop; });
+  })();
+
+  // 复制地址
+  var addr = '示例市示例区示例路 1 号　示例文化中心　三层多功能厅';
+  var toast = document.getElementById('toast');
+  function flash(msg){
+    toast.textContent = msg;
+    toast.classList.add('on');
+    setTimeout(function(){ toast.classList.remove('on'); }, 1800);
+  }
+  document.getElementById('copyAddr').addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(function(){ flash('地址已复制'); }, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = addr;
+      ta.setAttribute('readonly','');
+      ta.style.cssText = 'position:absolute;left:-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); flash('地址已复制'); }
+      catch(err){ flash('请长按上方地址复制'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  /* ---------- 背景音 ----------
+     用 <audio> 而不是 Web Audio 合成：后者在 iOS 18 及更早的机型上
+     经常连按钮都唤不起来（AudioContext 一旦在无手势时创建就被系统锁死），
+     而 <audio> 的播放支持从很老的版本起就是稳的。 */
+  var audio  = document.getElementById('bgmAudio');
+  var bgmBtn = document.getElementById('bgm');
+  var userMuted = false, hinted = false, audioOK = true;
+
+  audio.volume = 0.32;
+  audio.addEventListener('error', function(){        // 没放 bgm.mp3 就把按钮收起来
+    audioOK = false; bgmBtn.hidden = true;
+  });
+
+  function setBgmBtn(on){
+    bgmBtn.classList.toggle('on', !!on);
+    bgmBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+
+  function tryPlay(done){
+    if (!audioOK || userMuted){ done && done(false); return; }
+    var pr;
+    try { pr = audio.play(); } catch(e){ done && done(false); return; }
+    if (pr && pr.then) pr.then(function(){ done && done(true); },
+                               function(){ done && done(false); });
+    else setTimeout(function(){ done && done(!audio.paused); }, 120);
+  }
+
+  function autoStart(){
+    if (userMuted || !audio.paused) return;
+    tryPlay(function(ok){
+      setBgmBtn(ok);
+      if (ok && !hinted){
+        hinted = true;
+        setTimeout(function(){ flash('轻触右下角可关闭音乐'); }, 1400);
+      }
+    });
+  }
+
+  // 微信：桥就绪后可无手势起声。首次打开时桥常常还没注入好，
+  // 事件与轮询两条路都留着 —— 只监听事件会漏掉「脚本跑时桥已就绪」的情况。
+  (function(){
+    if (window.WeixinJSBridge && window.WeixinJSBridge.invoke){
+      WeixinJSBridge.invoke('getNetworkType', {}, autoStart);
+      return;
+    }
+    document.addEventListener('WeixinJSBridgeReady', function(){
+      WeixinJSBridge.invoke('getNetworkType', {}, autoStart);
+    }, false);
+    var n = 0, iv = setInterval(function(){
+      if (window.WeixinJSBridge && window.WeixinJSBridge.invoke){
+        clearInterval(iv);
+        WeixinJSBridge.invoke('getNetworkType', {}, autoStart);
+      } else if (++n > 50) clearInterval(iv);        // 最多等 5 秒
+    }, 100);
+  })();
+
+  // Safari／Chrome 一律拦自动播放：等用户第一次碰屏幕
+  (function(){
+    var evs = ['touchend','click','scroll'];
+    function detach(){
+      evs.forEach(function(e){
+        document.removeEventListener(e, once, true);
+        deck.removeEventListener(e, once, true);
+      });
+    }
+    function once(){
+      if (userMuted) return detach();
+      tryPlay(function(ok){ if (ok){ setBgmBtn(true); detach(); } });
+    }
+    evs.forEach(function(e){
+      document.addEventListener(e, once, true);
+      deck.addEventListener(e, once, true);
+    });
+  })();
+
+  // 切到后台再回来，iOS 会把播放挂起
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden || userMuted) return;
+    if (audio.paused) tryPlay(setBgmBtn);
+  });
+
+  bgmBtn.addEventListener('click', function(){
+    if (!audio.paused){
+      audio.pause(); userMuted = true; setBgmBtn(false);
+    } else {
+      userMuted = false; tryPlay(setBgmBtn);
+    }
+  });
+})();
+</script>
+</body>
+</html>
